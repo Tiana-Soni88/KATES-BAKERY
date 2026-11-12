@@ -1,0 +1,652 @@
+/* =========================================================
+   SWEET BAKERY — MASTER STYLESHEET
+   Single-file CSS covering: base, buttons, header, hero,
+   featured products, about, footer, page banner, menu
+   filters, contact form, and all responsive rules.
+   ========================================================= */
+
+/* =========================================================
+   1. RESET & BASE
+   ========================================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #b5651d;        /* warm caramel brown */
+    --primary-dark: #8b4a12;
+    --accent: #f7c59f;         /* soft peach */
+    --cream: #fdf6ec;          /* light bakery cream */
+    --dark: #2b1d14;           /* deep brown (text) */
+    --text: #4a3f35;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark);
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   2. BUTTONS
+   ========================================================= */
+.btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
+/* =========================================================
+   3. HEADER / NAVIGATION
+   ========================================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(253, 246, 236, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--dark);
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 4px;
+    transition: var(--transition);
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* =========================================================
+   4. HERO SECTION
+   ========================================================= */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(43, 29, 20, 0.55), rgba(43, 29, 20, 0.55)),
+        url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80')
+        center/cover no-repeat;
+    color: var(--white);
+    padding: 4rem 0;
+}
+
+.hero-content h1 {
+    color: var(--white);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #f0e6da;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================================
+   5. SECTION TITLES (shared)
+   ========================================================= */
+.section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text);
+    opacity: 0.75;
+    margin-bottom: 2.5rem;
+}
+
+/* =========================================================
+   6. FEATURED PRODUCTS
+   ========================================================= */
+.featured {
+    padding: 5rem 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 0.9rem;
+    background: var(--cream);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.loading {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: var(--text);
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* =========================================================
+   7. ABOUT SECTION
+   ========================================================= */
+.about {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text .section-title {
+    text-align: left;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.about-text .btn {
+    margin-top: 1rem;
+}
+
+.image-placeholder {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: var(--white);
+    height: 340px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+.site-footer {
+    background: var(--dark);
+    color: #e8ddd2;
+    padding: 3rem 0 1.5rem;
+}
+
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.site-footer h3 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.site-footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    opacity: 0.85;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}
+
+/* =========================================================
+   9. PAGE BANNER (menu & contact pages)
+   ========================================================= */
+.page-banner {
+    background:
+        linear-gradient(rgba(43, 29, 20, 0.6), rgba(43, 29, 20, 0.6)),
+        url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=1600&q=80')
+        center/cover no-repeat;
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 0 4rem;
+}
+
+.page-banner h1 {
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.6rem;
+}
+
+.page-banner p {
+    color: #f0e6da;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   10. MENU SECTION & FILTERS
+   ========================================================= */
+.menu-section {
+    padding: 4rem 0 5rem;
+}
+
+.menu-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+    background: var(--white);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    padding: 0.55rem 1.4rem;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    opacity: 0.65;
+}
+
+/* =========================================================
+   11. CONTACT PAGE
+   ========================================================= */
+.contact-section {
+    padding: 4rem 0 5rem;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.contact-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.contact-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1.1rem;
+    line-height: 1.5;
+}
+
+.contact-info strong {
+    display: block;
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.contact-form-wrapper {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.contact-form-wrapper h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--cream);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    background: var(--white);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: #d94f4f;
+    background: #fff5f5;
+}
+
+#contactForm .btn {
+    margin-top: 0.5rem;
+}
+
+#contactForm .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    min-height: 1.4em;
+}
+
+.form-status.success {
+    color: #2e7d32;
+}
+
+.form-status.error {
+    color: #c62828;
+}
+
+/* =========================================================
+   12. RESPONSIVE — MOBILE
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Nav */
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.5rem 0;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .main-nav.open {
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 70vh;
+    }
+
+    /* About */
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-text .section-title {
+        text-align: center;
+    }
+
+    /* Menu page */
+    .menu-filters {
+        gap: 0.4rem;
+    }
+
+    .filter-btn {
+        font-size: 0.82rem;
+        padding: 0.45rem 1rem;
+    }
+
+    /* Contact page */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================================
+   13. HIDDEN ADMIN BUTTON
+   ========================================================= */
+.secret-admin-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border-radius: 50%;
+    z-index: 9999;
+    cursor: default; /* Normal cursor so it looks invisible */
+    transition: var(--transition);
+}
+
+/* When you hover over the invisible spot, it glows slightly so you know it's there */
+.secret-admin-btn:hover {
+    background: rgba(181, 101, 29, 0.2); /* faint primary color */
+    cursor: pointer;
+}

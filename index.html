@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sweet Bakery - Freshly baked breads, cakes and pastries every day.">
+    <title>Kates Bakery | Home</title>
+
+    <!-- Google Fonts -->
+     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥐</text></svg>">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                🥐 Kates<span>Bakery</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" class="active">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Freshly Baked <br> Every Single Day</h1>
+            <p>Handcrafted breads, cakes, and pastries made with love and the finest ingredients.</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">View Our Menu</a>
+                <a href="contact.html" class="btn btn-outline">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED PRODUCTS (from Firebase) ===== -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Today's Favorites</h2>
+            <p class="section-subtitle">A taste of what we bake fresh this morning</p>
+
+            <div class="product-grid" id="featuredProducts">
+                <!-- Products will be injected here by js/main.js -->
+                <p class="loading">Loading delicious items...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about">
+        <div class="container about-wrapper">
+            <div class="about-text">
+                <h2 class="section-title">Our Story</h2>
+                <p>
+                    Sweet Bakery started in 2010 with a simple mission: to make the
+                    best bread in town using traditional methods and natural ingredients.
+                </p>
+                <p>
+                    Every morning at 4 AM, our bakers start mixing dough so that by
+                    the time you walk in, the whole street smells like fresh butter
+                    and cinnamon.
+                </p>
+                <a href="contact.html" class="btn btn-primary">Visit Us</a>
+            </div>
+            <div class="about-image">
+                <!-- Replace with your own image in /images -->
+                <div class="image-placeholder">🍞 Our Bakery</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container footer-wrapper">
+            <div>
+                <h3>Kates Bakery</h3>
+                <p>opposite dalton hotel, Murang'a</p>
+                <p>Open Mon–Sat: 9AM – 8PM</p>
+                <p>and Sunday's at 2PM -8PM</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>📞 +254 742 474 077</p>
+                <p>✉️ katesbakery@gmail.com</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p>Instagram · Facebook · TikTok</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Kates Bakery. All rights reserved.</p>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Type "module" allows us to use import/export for Firebase -->
+    <script type="module" src="js/main.js"></script>
+        <!-- HIDDEN ADMIN ACCESS BUTTON (Bottom Right Corner) -->
+    <a href="admin.html" class="secret-admin-btn" title="Admin Login"></a>
+
+    <script type="module" src="main.js"></script>
+    <a href="admin.html" class="secret-admin-btn" title="Admin Login"></a>
+</body>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Kates Bakery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: var(--cream);">
+
+    <!-- SIMPLE LOGIN SCREEN -->
+    <div id="loginScreen" class="container" style="max-width: 400px; margin-top: 10vh; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Admin Login</h2>
+        <div class="form-group">
+            <label for="adminPass">Password</label>
+            <input type="password" id="adminPass" placeholder="Enter password">
+        </div>
+        <button class="btn btn-primary" id="loginBtn" style="width: 100%;">Login</button>
+        <p id="loginError" style="color: red; text-align: center; margin-top: 1rem; display: none;">Incorrect password!</p>
+    </div>
+
+    <!-- DASHBOARD (Hidden by default) -->
+    <div id="dashboard" class="container" style="display: none; margin-top: 2rem;">
+        <h2>Customer Orders</h2>
+        <p style="margin-bottom: 2rem;">Here are the messages sent from the Contact form.</p>
+        
+        <div id="ordersList" style="display: grid; gap: 1rem;">
+            <!-- Orders will load here -->
+            <p class="loading">Loading orders...</p>
+        </div>
+        
+        <button class="btn btn-outline" onclick="location.reload()" style="margin-top: 2rem; color: var(--dark); border-color: var(--dark);">Log Out</button>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="admin.js"></script>
+    <a href="admin.html" class="secret-admin-btn" title="Admin Login"></a>
+</body>
+</html>

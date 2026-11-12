@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our full bakery menu — breads, cakes, and pastries baked fresh daily.">
+    <title>Menu | Kates Bakery</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥐</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                🥐 Kates<span>Bakery</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Our Menu</h1>
+            <p>Everything is baked fresh, every single morning.</p>
+        </div>
+    </section>
+
+    <!-- ===== MENU SECTION ===== -->
+    <section class="menu-section">
+        <div class="container">
+
+            <!-- Filter buttons -->
+            <div class="menu-filters" id="menuFilters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="bread">Breads</button>
+                <button class="filter-btn" data-category="cake">Cakes</button>
+                <button class="filter-btn" data-category="pastry">Pastries</button>
+            </div>
+
+            <!-- Products grid -->
+            <div class="product-grid" id="menuGrid">
+                <p class="loading">Loading menu...</p>
+            </div>
+
+            <!-- Empty state (hidden by default) -->
+            <p class="empty-state" id="emptyState" hidden>
+                Nothing here yet — try another category.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container footer-wrapper">
+            <div>
+                <h3>katesbakery Bakery</h3>
+                <p>opposite dalton hotel, Murang'a</p>
+                <p>Open Mon–Sat: 9AM – 8PM</p>
+                <p>and Sunday's at 2PM -8PM</p>
+                
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>📞 +254 742 474 077</p>
+                <p>✉️ katesbakery@gmail.com</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p>Instagram · Facebook · TikTok</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Kates Bakery. All rights reserved.</p>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/menu.js"></script>
+    <a href="admin.html" class="secret-admin-btn" title="Admin Login"></a>
+</body>
+</html>
